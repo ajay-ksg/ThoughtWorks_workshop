@@ -15,12 +15,12 @@ namespace CricketGame
 
         public int getRandomNoInLimit(int upperBound)
         {
-            return random.Next(0, upperBound);   
+            return random.Next(0, upperBound);
         }
 
         public int getRandomNumberlessThanNine()
         {
-            
+
             return random.Next(0, 10);
         }
     }

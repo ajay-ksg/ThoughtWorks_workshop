@@ -19,12 +19,13 @@ namespace CricketGame
         }
         //for now declare here .. move it to constants
         int numberOfBallsInOneOver = 6;
-        public  void StartGame(List<Player> players)
+        public void StartGame(List<Player> players)
         {
 
-            if (players != null && players.Count > 1) {
+            if (players != null && players.Count > 1)
+            {
                 Player batsMan = null;
-                Player bowler = null; 
+                Player bowler = null;
 
                 //get the players.
                 if (players[0].PlayerType == PlayerType.Batsman)
@@ -38,7 +39,7 @@ namespace CricketGame
                     bowler = players[0];
                 }
 
-               
+
                 //todo:: we can have diff service for matchDetails 
                 getMatchDetails();
 
@@ -51,7 +52,8 @@ namespace CricketGame
                 //todo:: move to a diff function. voilating SRP
                 for (int over = 0; over < overs; over++)
                 {
-                    for (int bawl = 0; bawl < numberOfBallsInOneOver; bawl++) {
+                    for (int bawl = 0; bawl < numberOfBallsInOneOver; bawl++)
+                    {
 
                         if (batsManScore >= targetForBatsman)
                         {
@@ -72,7 +74,7 @@ namespace CricketGame
                         //update batsman score 
                         batsMan.ScoreDetails.IncreaseScore(batsManScore);
                         batsMan.ScoreDetails.IncrementNoOfBallPlayed();
-                        
+
 
 
                         //update bowler score
@@ -80,7 +82,7 @@ namespace CricketGame
                         bowler.ScoreDetails.IncrementNoOfBallPlayed();
                     }
 
-                    
+
                 }
 
                 //check the final scores. We can move ths to different service having different Winning strategies.
@@ -91,15 +93,6 @@ namespace CricketGame
                     Console.WriteLine("Bowler team has Won , With total Score {0}", bowler.ScoreDetails.TotalScore);
 
             }
-        }
-
-        private int validateAndModifyScore(Player player, int score)
-        {
-            if (!player.CanScore.Contains(score))
-                score = 0;
-
-            return score;
-
         }
 
         private void getMatchDetails()

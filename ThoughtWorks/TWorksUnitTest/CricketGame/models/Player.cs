@@ -22,7 +22,7 @@ namespace CricketGame
         List<int> canScore;
         ScoreDetails scoreDetails;
         IgenerateNumber randomNumberGenerator = null;
-        public Player(string name,ScoreDetails scoreDetails,PlayerType pType, List<int> canScore, IgenerateNumber numberGeneratorService)
+        public Player(string name, ScoreDetails scoreDetails, PlayerType pType, List<int> canScore, IgenerateNumber numberGeneratorService)
         {
             this.playerName = name;
             playerType = pType;
@@ -85,7 +85,7 @@ namespace CricketGame
         internal int getScore()
         {
             int scoreIndex = randomNumberGenerator.getRandomNoInLimit(this.CanScore.Count);
-            
+
             return this.CanScore[scoreIndex];
         }
     }
