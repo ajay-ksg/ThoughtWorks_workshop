@@ -19,12 +19,16 @@ namespace CricketGame
         string playerName;
         string gender;
         PlayerType playerType;
+        List<int> canScore;
         ScoreDetails scoreDetails;
-        public Player(string name,ScoreDetails scoreDetails,PlayerType pType)
+        IgenerateNumber randomNumberGenerator = null;
+        public Player(string name,ScoreDetails scoreDetails,PlayerType pType, List<int> canScore, IgenerateNumber numberGeneratorService)
         {
             this.playerName = name;
             playerType = pType;
             this.scoreDetails = scoreDetails;
+            this.canScore = canScore;
+            this.randomNumberGenerator = numberGeneratorService;
         }
 
         public string PlayerName
@@ -52,6 +56,19 @@ namespace CricketGame
             }
         }
 
+        public List<int> CanScore
+        {
+            get
+            {
+                return this.canScore;
+            }
+
+            set
+            {
+                this.canScore = value;
+            }
+        }
+
 
         public ScoreDetails ScoreDetails
         {
@@ -63,6 +80,13 @@ namespace CricketGame
             {
                 this.scoreDetails = value;
             }
+        }
+
+        internal int getScore()
+        {
+            int scoreIndex = randomNumberGenerator.getRandomNoInLimit(this.CanScore.Count);
+            
+            return this.CanScore[scoreIndex];
         }
     }
 }

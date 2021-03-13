@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace CricketGame
 {
-    public interface IgenerateNumber
+    public interface IPlayerScoringStrategy
     {
-        int getRandomNumberlessThanNine();
-
+        List<int> getPlayerScoringStrategy(string batsManType);
     }
 }

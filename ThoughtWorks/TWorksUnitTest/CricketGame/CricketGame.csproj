@@ -43,13 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CricketGameService.cs" />
-    <Compile Include="Game.cs" />
-    <Compile Include="IgenerateNumber.cs" />
-    <Compile Include="generateSimpleRandomNo.cs" />
-    <Compile Include="Player.cs" />
+    <Compile Include="Services\CricketGameService.cs" />
+    <Compile Include="models\Game.cs" />
+    <Compile Include="Interfaces\IgenerateNumber.cs" />
+    <Compile Include="Services\generateSimpleRandomNo.cs" />
+    <Compile Include="Interfaces\IPlayerScoringStrategy.cs" />
+    <Compile Include="models\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScoreDetails.cs" />
+    <Compile Include="models\ScoreDetails.cs" />
+    <Compile Include="Services\SimpleScoringStretagy.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

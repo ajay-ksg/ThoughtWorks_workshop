@@ -41,17 +41,28 @@ namespace CricketGame
                
                 //todo:: we can have diff service for matchDetails 
                 getMatchDetails();
+
+                //initialize local score for batsman and bowler.
                 int batsManScore = -1;
                 int bowlerScore = -1;
+
+
+                //Play the game
+                //todo:: move to a diff function. voilating SRP
                 for (int over = 0; over < overs; over++)
                 {
                     for (int bawl = 0; bawl < numberOfBallsInOneOver; bawl++) {
-                        //get score for batsman.
-                        batsManScore = randomNumberGeneratorService.getRandomNumberlessThanNine();
+
+                        if (batsManScore >= targetForBatsman)
+                        {
+                            Console.WriteLine("Batsman team has Won , As it has achieved the target");
+                            return;
+                        }
+                        //get score for batsman
+                        batsManScore = batsMan.getScore();
 
                         //get score for bowler
-                        bowlerScore = randomNumberGeneratorService.getRandomNumberlessThanNine();
-
+                        bowlerScore = bowler.getScore();
                         if (batsManScore == bowlerScore)
                         {
                             Console.WriteLine("BatsMan out with Score {0}, after {1} Overs and {2} bawls and Bowler team has Won!!", batsMan.ScoreDetails.TotalScore, over, bawl);
@@ -59,22 +70,36 @@ namespace CricketGame
                         }
 
                         //update batsman score 
-                        batsMan.ScoreDetails.TotalScore += batsManScore;
-                        batsMan.ScoreDetails.NoOfBallsPlayed += 1;
+                        batsMan.ScoreDetails.IncreaseScore(batsManScore);
+                        batsMan.ScoreDetails.IncrementNoOfBallPlayed();
+                        
 
 
                         //update bowler score
-                        bowler.ScoreDetails.TotalScore += bowlerScore;
-                        bowler.ScoreDetails.NoOfBallsPlayed += 1;
+                        bowler.ScoreDetails.IncreaseScore(bowlerScore);
+                        bowler.ScoreDetails.IncrementNoOfBallPlayed();
                     }
 
-                    if (batsMan.ScoreDetails.TotalScore > bowler.ScoreDetails.TotalScore)
-                        Console.WriteLine("Batsman team has Won , With total Score {0}", batsMan.ScoreDetails.TotalScore);
-                    else
-                        Console.WriteLine("Bowler team has Won , With total Score {0}", bowler.ScoreDetails.TotalScore);
-
+                    
                 }
+
+                //check the final scores. We can move ths to different service having different Winning strategies.
+
+                if (batsMan.ScoreDetails.TotalScore > bowler.ScoreDetails.TotalScore)
+                    Console.WriteLine("Batsman team has Won , With total Score {0}", batsMan.ScoreDetails.TotalScore);
+                else
+                    Console.WriteLine("Bowler team has Won , With total Score {0}", bowler.ScoreDetails.TotalScore);
+
             }
+        }
+
+        private int validateAndModifyScore(Player player, int score)
+        {
+            if (!player.CanScore.Contains(score))
+                score = 0;
+
+            return score;
+
         }
 
         private void getMatchDetails()

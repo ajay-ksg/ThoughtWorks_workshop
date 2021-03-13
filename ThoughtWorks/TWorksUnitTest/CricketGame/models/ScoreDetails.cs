@@ -34,5 +34,15 @@ namespace CricketGame
                 this.noOfBallsPlayed = value;
             }
         }
+
+        internal void IncreaseScore(int batsManScore)
+        {
+            this.TotalScore += batsManScore;
+        }
+
+        internal void IncrementNoOfBallPlayed()
+        {
+            this.NoOfBallsPlayed += 1;
+        }
     }
 }

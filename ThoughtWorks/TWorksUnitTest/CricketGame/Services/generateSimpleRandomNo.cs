@@ -10,10 +10,18 @@ namespace CricketGame
     {
         //todo:: move to constants
         int maxNumberOfPages = 300;
+        static readonly Random random = new Random();
+
+
+        public int getRandomNoInLimit(int upperBound)
+        {
+            return random.Next(0, upperBound);   
+        }
+
         public int getRandomNumberlessThanNine()
         {
-            Random random = new Random();
-            return random.Next(0, maxNumberOfPages)%10;
+            
+            return random.Next(0, 10);
         }
     }
 }
