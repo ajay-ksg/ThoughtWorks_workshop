@@ -4,11 +4,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace TWorksUnitTest
 {
     [TestClass]
-    public class UnitTest1
+    public class PlayCricketTest
     {
         [TestMethod]
         public void TestMethod1()
         {
+
         }
     }
 }

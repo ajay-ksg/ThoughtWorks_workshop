@@ -1,0 +1,7 @@
+D:\Documents\My_Docs\My_docs\Workshop\ThoughtWorks\TWorksUnitTest\CricketGame\bin\Debug\CricketGame.exe.config
+D:\Documents\My_Docs\My_docs\Workshop\ThoughtWorks\TWorksUnitTest\CricketGame\bin\Debug\CricketGame.exe
+D:\Documents\My_Docs\My_docs\Workshop\ThoughtWorks\TWorksUnitTest\CricketGame\bin\Debug\CricketGame.pdb
+D:\Documents\My_Docs\My_docs\Workshop\ThoughtWorks\TWorksUnitTest\CricketGame\obj\Debug\CricketGame.csprojAssemblyReference.cache
+D:\Documents\My_Docs\My_docs\Workshop\ThoughtWorks\TWorksUnitTest\CricketGame\obj\Debug\CricketGame.csproj.CoreCompileInputs.cache
+D:\Documents\My_Docs\My_docs\Workshop\ThoughtWorks\TWorksUnitTest\CricketGame\obj\Debug\CricketGame.exe
+D:\Documents\My_Docs\My_docs\Workshop\ThoughtWorks\TWorksUnitTest\CricketGame\obj\Debug\CricketGame.pdb
